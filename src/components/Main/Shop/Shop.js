@@ -7,8 +7,7 @@ import Home from './Home/Home';
 import Contact from './Contact/Contact';
 import Cart from './Cart/Cart';
 import Search from './Search/Search';
-
-const { height } = Dimensions.get('window');
+import Header from './Header';
 
 class Shop extends Component {
   constructor(props) {
@@ -24,11 +23,7 @@ class Shop extends Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <View style={{ height: height / 8 }}>
-          <TouchableOpacity onPress={this.openMenu.bind(this)}>
-            <Text>Open Menu</Text>
-          </TouchableOpacity>
-        </View>
+        <Header onOpen={this.openMenu.bind(this)} />
         <TabNavigator>
           <TabNavigator.Item
             selected={this.state.selectedTab === 'home'}
