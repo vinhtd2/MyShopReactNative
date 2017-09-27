@@ -23,7 +23,7 @@ class Shop extends Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <Header onOpen={this.openMenu.bind(this)} />
+        <Header onOpen={this.openMenu.bind(this )} />
         <TabNavigator>
           <TabNavigator.Item
             selected={this.state.selectedTab === 'home'}
