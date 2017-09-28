@@ -4020,6 +4020,12 @@ react-native-drawer@^2.5.0:
     prop-types "^15.5.8"
     tween-functions "^1.0.1"
 
+react-native-swiper@^1.5.12:
+  version "1.5.12"
+  resolved "https://registry.yarnpkg.com/react-native-swiper/-/react-native-swiper-1.5.12.tgz#fe040e19d936304013f1671dd83f7e25ee3c4d83"
+  dependencies:
+    prop-types "^15.5.10"
+
 react-native-tab-navigator@^0.3.4:
   version "0.3.4"
   resolved "https://registry.yarnpkg.com/react-native-tab-navigator/-/react-native-tab-navigator-0.3.4.tgz#54a18f1ad06a09d4a0de81ff00416bc1b760c960"
