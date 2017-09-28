@@ -27,9 +27,6 @@ export default class Main extends Component {
   openControlPanel = () => {
     this.drawer.open()
   }
-  componentDidMount() {
-    this.drawer.open()
-  }
 
   render() {
     const { navigate } = this.props.navigation;
