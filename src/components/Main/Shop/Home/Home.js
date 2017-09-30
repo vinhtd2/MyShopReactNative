@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
 import { ScrollView} from 'react-native';
 
-import Collection from './Collection';
-import Category from './Category';
-import TopProduct from './TopProduct.js';
+import { StackNavigator } from 'react-navigation';
+
+import HomeView from './HomeView';
+import ProductDetail from '../ProductDetail/ProductDetail';
+import ListProduct from '../ListProduct/ListProduct';
+
+const HomeStackNavigator = StackNavigator({
+  HOME_VIEW: { screen: HomeView },
+  LIST_PRODUCT: { screen: ListProduct },
+  PRODUCT_DETAIL: { screen: ProductDetail }
+}, {
+  headerMode: 'none'
+})
 
 class Home extends Component {
   render() {
-    return (
-      <ScrollView style={{ flex: 1, backgroundColor: '#DBDBD8' }}>
-        <Collection />
-        <Category />
-        <TopProduct />
-      </ScrollView>
-    );
+    return <HomeStackNavigator />;
   }
 }
 

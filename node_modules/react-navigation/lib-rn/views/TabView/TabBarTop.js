@@ -65,11 +65,23 @@ export default class TabBarTop extends PureComponent {
     return <TabBarIcon position={position} navigation={navigation} activeTintColor={activeTintColor} inactiveTintColor={inactiveTintColor} renderIcon={renderIcon} scene={scene} style={[styles.icon, iconStyle]} />;
   };
 
+  _handleOnPress = scene => {
+    const { getOnPress, jumpToIndex } = this.props;
+
+    const onPress = getOnPress(scene);
+
+    if (onPress) {
+      onPress(scene, jumpToIndex);
+    } else {
+      jumpToIndex(scene.index);
+    }
+  };
+
   render() {
     // TODO: Define full proptypes
     const props = this.props;
 
-    return <TabBar {...props} renderIcon={this._renderIcon} renderLabel={this._renderLabel} />;
+    return <TabBar {...props} onTabPress={this._handleOnPress} jumpToIndex={() => {}} renderIcon={this._renderIcon} renderLabel={this._renderLabel} />;
   }
 }
 

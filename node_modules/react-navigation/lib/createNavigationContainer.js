@@ -55,7 +55,9 @@ function createNavigationContainer(Component) {
 
       _this.subs = null;
 
-      _this._handleOpenURL = function (url) {
+      _this._handleOpenURL = function (_ref) {
+        var url = _ref.url;
+
         var parsedUrl = _this._urlToPathAndParams(url);
         if (parsedUrl) {
           var path = parsedUrl.path,
@@ -170,14 +172,10 @@ function createNavigationContainer(Component) {
           return _this2.dispatch(_NavigationActions2.default.back());
         });
 
-        _PlatformHelpers.Linking.addEventListener('url', function (_ref) {
-          var url = _ref.url;
-
-          _this2._handleOpenURL(url);
-        });
+        _PlatformHelpers.Linking.addEventListener('url', this._handleOpenURL);
 
         _PlatformHelpers.Linking.getInitialURL().then(function (url) {
-          return url && _this2._handleOpenURL(url);
+          return url && _this2._handleOpenURL({ url: url });
         });
       }
     }, {

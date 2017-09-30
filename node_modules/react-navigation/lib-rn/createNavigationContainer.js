@@ -56,7 +56,7 @@ export default function createNavigationContainer(Component) {
       };
     }
 
-    _handleOpenURL = url => {
+    _handleOpenURL = ({ url }) => {
       const parsedUrl = this._urlToPathAndParams(url);
       if (parsedUrl) {
         const { path, params } = parsedUrl;
@@ -103,11 +103,9 @@ export default function createNavigationContainer(Component) {
 
       this.subs = BackHandler.addEventListener('hardwareBackPress', () => this.dispatch(NavigationActions.back()));
 
-      Linking.addEventListener('url', ({ url }) => {
-        this._handleOpenURL(url);
-      });
+      Linking.addEventListener('url', this._handleOpenURL);
 
-      Linking.getInitialURL().then(url => url && this._handleOpenURL(url));
+      Linking.getInitialURL().then(url => url && this._handleOpenURL({ url }));
     }
 
     componentWillUnmount() {

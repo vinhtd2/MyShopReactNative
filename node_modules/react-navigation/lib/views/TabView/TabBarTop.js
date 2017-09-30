@@ -108,6 +108,19 @@ var TabBarTop = function (_PureComponent) {
         scene: scene,
         style: [styles.icon, iconStyle]
       });
+    }, _this._handleOnPress = function (scene) {
+      var _this$props3 = _this.props,
+          getOnPress = _this$props3.getOnPress,
+          jumpToIndex = _this$props3.jumpToIndex;
+
+
+      var onPress = getOnPress(scene);
+
+      if (onPress) {
+        onPress(scene, jumpToIndex);
+      } else {
+        jumpToIndex(scene.index);
+      }
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
@@ -118,6 +131,8 @@ var TabBarTop = function (_PureComponent) {
       var props = this.props;
 
       return _react2.default.createElement(_reactNativeTabView.TabBar, _extends({}, props, {
+        onTabPress: this._handleOnPress,
+        jumpToIndex: function jumpToIndex() {},
         renderIcon: this._renderIcon,
         renderLabel: this._renderLabel
       }));
