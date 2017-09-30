@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
+import ProductDetail from '../ProductDetail/ProductDetail';
+import SearchView from './SearchView';
+
+import { StackNavigator } from 'react-navigation';
+
+const SearchStackNavigator = StackNavigator({
+  SEARCH_VIEW: { screen: SearchView },
+  PRODUCT_DETAIL: { screen: ProductDetail }
+}, {
+  headerMode: 'none'
+});
+
 class Search extends Component {
   render() {
-    return (
-      <View style={{ flex: 1, backgroundColor: '#1F85FF' }}>
-        <Text>Search Component</Text>
-      </View>
-    );
+    return <SearchStackNavigator />;
   }
 }
 
