@@ -21,7 +21,7 @@ const AppStackNavigator = StackNavigator({
 
 export default class App extends Component {
   render() {
-    return <AppStackNavigator />
+    return <AppStackNavigator screenProps="hello"/>
   }
 }
 
