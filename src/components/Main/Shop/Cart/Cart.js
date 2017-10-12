@@ -15,7 +15,10 @@ const CartStackNavigator = StackNavigator({
 
 class Cart extends Component {
   render() {
-    return <CartStackNavigator />;
+    const { cartArray } = this.props;
+    console.log(cartArray);
+    console.log('aaaaaaaaaaaaa');
+    return <CartStackNavigator screenProps={ cartArray } />
   }
 }
 

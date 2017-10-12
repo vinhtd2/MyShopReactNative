@@ -3,11 +3,8 @@ import { View, Text, Image, StyleSheet, Dimensions, TouchableOpacity } from 'rea
 
 import Swiper from 'react-native-swiper';
 
-import littleIcon from '../../../../media/temp/little.jpg';
-import maxiIcon from '../../../../media/temp/maxi.jpg';
-import partyIcon from '../../../../media/temp/party.jpg';
-
 const { width, height } = Dimensions.get('window');
+const url = 'http://192.168.1.56/api/images/type/';
 
 export default class Collection extends Component {
   constructor(props) {
@@ -25,7 +22,6 @@ export default class Collection extends Component {
     const { wrapper, imageStyle, cateTitle, textStyle } = styles;
     const { navigate } = this.props.navigation;
     const { types } = this.props;
-    console.log(types)
     return (
       <View style={ wrapper }>
         <View style={{ flex: 1, justifyContent: 'center' }}>
@@ -35,7 +31,7 @@ export default class Collection extends Component {
           <Swiper>
             { types.map(e => (
               <TouchableOpacity onPress={this.goToListProduct.bind(this)} key={e.id}>
-                <Image source={{ uri: `http://192.168.1.56/api/images/type/${e.image}` }} style={imageStyle}>
+                <Image source={{ uri: `${url}${e.image}` }} style={imageStyle}>
                   <Text style={cateTitle}>{e.name}</Text>
                 </Image>
               </TouchableOpacity>

@@ -17,8 +17,8 @@ const HomeStackNavigator = StackNavigator({
 
 class Home extends Component {
   render() {
-    const { type } = this.props;
-    return <HomeStackNavigator screenProps={type} />;
+    const { type, topProducts } = this.props;
+    return <HomeStackNavigator screenProps={this.props} />;
   }
 }
 

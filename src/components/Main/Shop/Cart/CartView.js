@@ -23,10 +23,14 @@ class CartView extends Component {
       txtName, txtPrice, productImage, numberOfProduct,
       txtShowDetail, showDetailContainer
     } = styles;
+
+    const cartArray = this.props.screenProps;
+    console.log('----------------')
+    console.log(this.props)
     return (
       <View style={wrapper}>
         <ScrollView style={main}>
-          <View style={product}>
+          {/* <View style={product}>
             <Image source={sp1} style={productImage} />
             <View style={[mainRight]}>
               <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
@@ -117,9 +121,11 @@ class CartView extends Component {
             </View>
           </View>
 
-          <View style={product}>
-            <Image source={sp1} style={productImage} />
-            <View style={[mainRight]}>
+          */}
+          { cartArray.map(productItem => (
+            <View style={product} key={productItem}>
+              <Image source={sp1} style={productImage} />
+              <View style={[mainRight]}>
               <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
                 <Text style={txtName}>{toTitleCase('black of the')}</Text>
                 <TouchableOpacity>
@@ -131,22 +137,23 @@ class CartView extends Component {
               </View>
               <View style={productController}>
                 <View style={numberOfProduct}>
-                  <TouchableOpacity>
-                    <Text>+</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity>
-                    <Text>{3}</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity>
-                    <Text>-</Text>
-                  </TouchableOpacity>
-                </View>
-                <TouchableOpacity style={showDetailContainer}>
-                  <Text style={txtShowDetail}>SHOW DETAILS</Text>
+                <TouchableOpacity>
+                  <Text>+</Text>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                  <Text>{3}</Text>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                  <Text>-</Text>
                 </TouchableOpacity>
               </View>
+            <TouchableOpacity style={showDetailContainer}>
+              <Text style={txtShowDetail}>SHOW DETAILS</Text>
+            </TouchableOpacity>
             </View>
-          </View>
+            </View>
+            </View>
+            )) }
         </ScrollView>
         <TouchableOpacity style={checkoutButton}>
           <Text style={checkoutTitle}>TOTAL {1000}$ CHECKOUT NOW</Text>
