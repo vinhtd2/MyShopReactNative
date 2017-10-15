@@ -16,13 +16,10 @@ export default class ProductDetail extends Component {
     goBack();
   }
   addThisProductToCart = () => {
-    const { product } = this.props;
+    const { product } = this.props.navigation.state.params;
     global.addProductToCart(product);
   }
   render() {
-    console.log("--------------");
-    console.log(this.props.navigation.state.params.product)
-    console.log("--------------");
     const {
       wrapper, cardStyle, header,
       footer, backStyle,

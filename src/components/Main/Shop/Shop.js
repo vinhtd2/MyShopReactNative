@@ -31,14 +31,15 @@ class Shop extends Component {
     };
     global.addProductToCart = this.addProductToCart.bind(this)
   }
-  addProductToCart(product) {
-    this.setState({ cartArray: this.state.cartArray.concat(product) })
+  addProductToCart = (product) => {
+    this.setState({ cartArray: this.state.cartArray.concat({product, quantity: 1}) })
   }
   componentDidMount() {
-    fetch('http://192.168.1.56/api/')
+    const { localhost } = global;
+    fetch(`${localhost}api/`)
       .then(res => res.json())
       .then(resJSON => {
-          const {type, product} = resJSON;
+          const {type, product}  = resJSON;
           this.setState({type, topProducts: product});
         }
 
@@ -51,7 +52,6 @@ class Shop extends Component {
   render() {
     const { iconStyle } = styles;
     const { type, selectedTab, topProducts, cartArray } = this.state;
-
     return (
       <View style={{ flex: 1 }}>
         <Header onOpen={this.openMenu.bind(this)} />

@@ -17,15 +17,6 @@ import sp4 from '../../../../media/temp/sp4.jpeg';
 const url = 'http://192.168.1.56/api/images/product/';
 
 export default class TopProduct extends Component {
-  constructor(props) {
-    super(props);
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 != r2});
-    const { topProducts } = this.props;
-    this.state = {
-      dataSource: ds.cloneWithRows(topProducts)
-    }
-
-  }
   goToDetail = (product) => {
     const { navigate } = this.props.navigation;
     navigate('PRODUCT_DETAIL', { product: product } );
@@ -40,12 +31,13 @@ export default class TopProduct extends Component {
       productImage,
       productName, productPrice
     } = styles;
+    const { topProducts } = this.props;
     return (
       <View style={ container }>
         <View style={ titleContainer }>
           <Text style={title}>Top Product</Text>
         </View>
-        <View style={body}>
+        {/*<View style={body}>
           {this.props.topProducts.map(e => (
             <TouchableOpacity style={productContainer} onPress={() => this.goToDetail(e)} key={e.id}>
               <Image source={{uri: `${url}${e.images[0]}`}} style={productImage} />
@@ -53,7 +45,23 @@ export default class TopProduct extends Component {
               <Text style={productPrice}>{e.price}</Text>
             </TouchableOpacity>
             ))}
-        </View>
+        </View>*/}
+        <ListView
+          contentContainerStyle={body}
+          enableEmptySections
+          dataSource={new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 != r2 }).cloneWithRows(topProducts)}
+          renderRow={(product) => (
+            <TouchableOpacity style={productContainer} onPress={() => this.goToDetail(product)} key={product.id}>
+              <Image source={{uri: `${url}${product.images[0]}`}} style={productImage} />
+              <Text style={productName}>{product.name.toUpperCase()}</Text>
+              <Text style={productPrice}>{product.price}</Text>
+            </TouchableOpacity>
+          )}
+          renderSeparator={(sectionId, rowId) => {
+            if(rowId % 2 === 1) return <View style={{ width, height: 10 }} />
+            return null;
+          }}
+        />
       </View>
     )
   }

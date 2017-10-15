@@ -1,3 +1,4 @@
 module.exports = {
-  addProductToCart: null
+  addProductToCart: null,
+  localhost: 'http://192.168.0.167/'
 };
