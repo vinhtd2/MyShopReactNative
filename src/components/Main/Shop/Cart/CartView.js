@@ -3,8 +3,7 @@ import {
   View, Text, TouchableOpacity, ListView,
   Dimensions, StyleSheet, Image
 } from 'react-native';
-
-
+import global from '../../../global';
 
 function toTitleCase (str) {
   return str.replace(/\w\S*/g, txt => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
@@ -13,6 +12,9 @@ function toTitleCase (str) {
 const url = 'http://192.168.1.56/api/images/product/'
 
 class CartView extends Component {
+  incrQuatity(id) {
+    global.incrQuantity(id);
+  }
   goToDetail() {
     const { navigate } = this.props.navigation;
     navigate('PRODUCT_DETAIL');
@@ -48,7 +50,7 @@ class CartView extends Component {
                 </View>
                 <View style={productController}>
                   <View style={numberOfProduct}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => this.incrQuatity(cartItem.product.id)}>
                       <Text>+</Text>
                     </TouchableOpacity>
                     <TouchableOpacity>
