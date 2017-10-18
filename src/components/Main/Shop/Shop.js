@@ -35,9 +35,11 @@ class Shop extends Component {
     };
     global.addProductToCart = this.addProductToCart.bind(this);
     global.incrQuantity = this.incrQuantity.bind(this);
+    global.decrQuantity = this.decrQuantity.bind(this);
+    global.removeProduct = this.removeProduct.bind(this);
   }
   addProductToCart = (product) => {
-    this.setState({ cartArray: this.state.cartArray.concat({product, quantity: 1}) }, () => saveCart(this.state.cartArray) )
+    this.setState({ cartArray: this.state.cartArray.concat({product, quantity: 1}) }, () =>  saveCart(this.state.cartArray) )
 
   }
   incrQuantity(productId) {
@@ -45,10 +47,18 @@ class Shop extends Component {
       if(e.product.id !== productId) return e;
       return { product: e.product, quantity: e.quantity + 1 }
     })
-    this.setState({ cartArray: newCart })
+    this.setState({ cartArray: newCart }, () => saveCart(this.state.cartArray))
   }
   decrQuantity(productId) {
-
+    const newCart = this.state.cartArray.map(e => {
+      if(e.product.id !== productId) return e;
+      return { product: e.product, quantity: e.quantity - 1 }
+    })
+    this.setState({ cartArray: newCart}, () => saveCart(this.state.cartArray))
+  }
+  removeProduct(productId) {
+    const newCart = this.state.cartArray.filter(e => e.product.id !== productId);
+    this.setState({ cartArray: newCart }, () => saveCart(this.state.cartArray));
   }
   componentDidMount() {
     initData()
