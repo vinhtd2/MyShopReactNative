@@ -35,6 +35,8 @@ class CartView extends Component {
     } = styles;
 
     const cartArray = this.props.screenProps;
+    const arrTotal = cartArray.map(e => e.product.price * e.quantity);
+    const total = arrTotal.length ? arrTotal.reduce((a, b) => a + b) : 0;
     return (
       <View style={wrapper}>
         <ListView
@@ -76,7 +78,7 @@ class CartView extends Component {
           }
         />
         <TouchableOpacity style={checkoutButton}>
-          <Text style={checkoutTitle}>TOTAL {1000}$ CHECKOUT NOW</Text>
+          <Text style={checkoutTitle}>TOTAL {total}$ CHECKOUT NOW</Text>
         </TouchableOpacity>
       </View>
     )
