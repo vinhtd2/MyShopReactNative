@@ -5,6 +5,7 @@ import { View, Text, Button, TouchableOpacity, Image, StyleSheet,
 
 import icBack from '../../media/appIcon/back_white.png';
 import icLogo from '../../media/appIcon/ic_logo.png';
+import register from '../../api/register';
 
 export default class Authentication extends Component {
   constructor(props) {
@@ -12,6 +13,10 @@ export default class Authentication extends Component {
     this.state = {
       isSignIn: true,
     }
+  }
+  componentDidMount() {
+    register('vinh1995', 'Vinh Tran', '123')
+      .then(res => console.log(res))
   }
   signIn() {
     this.setState({ isSignIn: true })
