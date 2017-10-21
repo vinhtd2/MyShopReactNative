@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38912175-d565-43d4-8618-2b497e1cd48c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/.gradle/2.14.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/android/.gradle/2.14.1/taskArtifacts/cache.properties.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/android/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" afterPath="$PROJECT_DIR$/android/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/android/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Authentication/Authentication.js" afterPath="$PROJECT_DIR$/src/components/Authentication/Authentication.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Main/Shop/Home/TopProduct.js" afterPath="$PROJECT_DIR$/src/components/Main/Shop/Home/TopProduct.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Authentication/SignUp.js" afterPath="$PROJECT_DIR$/src/components/Authentication/SignUp.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -121,8 +116,8 @@
       <file leaf-file-name="SignUp.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Authentication/SignUp.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="59" column="25" lean-forward="false" selection-start-line="59" selection-start-column="25" selection-end-line="59" selection-end-column="25" />
+            <state relative-caret-position="405">
+              <caret line="33" column="52" lean-forward="false" selection-start-line="33" selection-start-column="52" selection-end-line="33" selection-end-column="52" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -630,12 +625,12 @@
       <workItem from="1508407097028" duration="1558000" />
       <workItem from="1508428826528" duration="3487000" />
       <workItem from="1508520384706" duration="3945000" />
-      <workItem from="1508593009697" duration="3268000" />
+      <workItem from="1508593009697" duration="4708000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="232784000" />
+    <option name="totallyTimeSpent" value="234224000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1090,8 +1085,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Authentication/SignUp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="59" column="25" lean-forward="false" selection-start-line="59" selection-start-column="25" selection-end-line="59" selection-end-column="25" />
+        <state relative-caret-position="405">
+          <caret line="33" column="52" lean-forward="false" selection-start-line="33" selection-start-column="52" selection-end-line="33" selection-end-column="52" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
