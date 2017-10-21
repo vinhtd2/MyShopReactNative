@@ -6,6 +6,8 @@ import { View, Text, Button, TouchableOpacity, Image, StyleSheet,
 import icBack from '../../media/appIcon/back_white.png';
 import icLogo from '../../media/appIcon/ic_logo.png';
 import register from '../../api/register';
+import SignIn from './SignIn';
+import SignUp from './SignUp';
 
 export default class Authentication extends Component {
   constructor(props) {
@@ -13,10 +15,6 @@ export default class Authentication extends Component {
     this.state = {
       isSignIn: true,
     }
-  }
-  componentDidMount() {
-    register('vinh1995', 'Vinh Tran', '123')
-      .then(res => console.log(res))
   }
   signIn() {
     this.setState({ isSignIn: true })
@@ -38,31 +36,9 @@ export default class Authentication extends Component {
       buttonText
     } = styles;
 
-    const signInJSX = (
-      <View>
-        <TextInput style={inputStyle} placeholder="Enter your name" />
-        <TextInput style={inputStyle} placeholder="Enter your email" />
-        <TouchableOpacity style={bigButton}>
-          <Text style={buttonText}>SIGN IN NOW</Text>
-        </TouchableOpacity>
-      </View>
-    );
-
-    const signUpJSX = (
-      <View>
-        <TextInput style={inputStyle} placeholder="Enter your name" />
-        <TextInput style={inputStyle} placeholder="Enter your email" />
-        <TextInput style={inputStyle} placeholder="Enter your password" />
-        <TextInput style={inputStyle} placeholder="Re-enter your password" />
-        <TouchableOpacity style={bigButton}>
-          <Text style={buttonText}>SIGN UP NOW</Text>
-        </TouchableOpacity>
-      </View>
-    );
-
     const { isSignIn } = this.state;
 
-    const mainJSX = isSignIn ? signInJSX : signUpJSX;
+    const mainJSX = isSignIn ? <SignIn /> : <SignUp />;
     return (
       <View style={container}>
         <View style={ row1 }>
@@ -124,24 +100,4 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 20,
     marginLeft: 1
   },
-  inputStyle: {
-    height: 50,
-    backgroundColor: '#FFF',
-    marginBottom: 10,
-    borderRadius: 20,
-    paddingLeft: 30
-  },
-  bigButton: {
-    height: 50,
-    borderRadius: 20,
-    borderWidth: 1,
-    borderColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  buttonText: {
-    fontFamily: 'Avenir',
-    color: '#fff',
-    fontWeight: '400'
-  }
 })

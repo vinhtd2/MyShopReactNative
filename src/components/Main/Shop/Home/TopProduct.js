@@ -9,11 +9,6 @@ import {
   ListView
 } from 'react-native';
 
-import sp1 from '../../../../media/temp/sp1.jpeg';
-import sp2 from '../../../../media/temp/sp2.jpeg';
-import sp3 from '../../../../media/temp/sp3.jpeg';
-import sp4 from '../../../../media/temp/sp4.jpeg';
-
 const url = 'http://192.168.1.56/api/images/product/';
 
 export default class TopProduct extends Component {
@@ -37,15 +32,6 @@ export default class TopProduct extends Component {
         <View style={ titleContainer }>
           <Text style={title}>Top Product</Text>
         </View>
-        {/*<View style={body}>
-          {this.props.topProducts.map(e => (
-            <TouchableOpacity style={productContainer} onPress={() => this.goToDetail(e)} key={e.id}>
-              <Image source={{uri: `${url}${e.images[0]}`}} style={productImage} />
-              <Text style={productName}>{e.name.toUpperCase()}</Text>
-              <Text style={productPrice}>{e.price}</Text>
-            </TouchableOpacity>
-            ))}
-        </View>*/}
         <ListView
           contentContainerStyle={body}
           enableEmptySections
