@@ -13,6 +13,29 @@ export default class SignUp extends Component {
     }
   }
 
+  onSuccess = () => {
+    const { goToSignIn } = this.props;
+    Alert.alert(
+      'Notice',
+      'Sign up successfully',
+      [
+        {text: 'OK', onPress: () => goToSignIn() },
+      ],
+      { cancelable: false }
+    )
+  }
+
+  onFail = () => {
+    Alert.alert(
+      'Notice',
+      'Email has been used by other',
+      [
+        {text: 'OK', onPress: () => this.removeEmail},
+      ],
+      { cancelable: false }
+    )
+  }
+
   registerUser = () => {
     const { name, email, password } = this.state;
     register(email, name, password)
@@ -26,27 +49,6 @@ export default class SignUp extends Component {
     this.setState({ email: '' });
   }
 
-  onSuccess = () => {
-    Alert.alert(
-      'Notice',
-      'Sign up successfully',
-      [
-        {text: 'OK', onPress: () => this.removeEmail},
-      ],
-      { cancelable: false }
-    )
-  }
-
-  onFail = () => {
-    Alert.alert(
-      'Notice',
-      'Email has been used by other',
-      [
-        {text: 'OK', onPress: () => console.log('Ask me later pressed')},
-      ],
-      { cancelable: false }
-    )
-  }
   render() {
     const {
       inputStyle,

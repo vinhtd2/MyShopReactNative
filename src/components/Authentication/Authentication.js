@@ -5,7 +5,6 @@ import { View, Text, Button, TouchableOpacity, Image, StyleSheet,
 
 import icBack from '../../media/appIcon/back_white.png';
 import icLogo from '../../media/appIcon/ic_logo.png';
-import register from '../../api/register';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 
@@ -15,6 +14,10 @@ export default class Authentication extends Component {
     this.state = {
       isSignIn: true,
     }
+  }
+
+  goToSignIn = () => {
+    this.setState({ isSignIn: true })
   }
   signIn() {
     this.setState({ isSignIn: true })
@@ -38,7 +41,7 @@ export default class Authentication extends Component {
 
     const { isSignIn } = this.state;
 
-    const mainJSX = isSignIn ? <SignIn /> : <SignUp />;
+    const mainJSX = isSignIn ? <SignIn /> : <SignUp goToSignIn={this.goToSignIn} />;
     return (
       <View style={container}>
         <View style={ row1 }>
