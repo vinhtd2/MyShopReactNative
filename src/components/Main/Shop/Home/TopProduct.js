@@ -9,7 +9,8 @@ import {
   ListView
 } from 'react-native';
 
-const url = 'http://192.168.1.56/api/images/product/';
+import { localhost } from '../../../global'
+const url = `${localhost}api/images/product/`;
 
 export default class TopProduct extends Component {
   goToDetail = (product) => {

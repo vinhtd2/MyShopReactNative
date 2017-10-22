@@ -1,6 +1,6 @@
-
+import { localhost } from '../components/global';
 const register = (email, name, password) => (
-  fetch('http://192.168.1.56/api/register.php', {
+  fetch(`${localhost}api/register.php`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

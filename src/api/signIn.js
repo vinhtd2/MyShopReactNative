@@ -1,5 +1,6 @@
+import { localhost } from '../components/global';
 const signIn = (email, password) => (
-  fetch('http://192.168.1.56/api/login.php', {
+  fetch(`${localhost}api/login.php`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

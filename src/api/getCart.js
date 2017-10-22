@@ -13,3 +13,4 @@ const getCart = async () => {
 };
 
 export default getCart;
+

@@ -41,7 +41,7 @@ export default class Authentication extends Component {
 
     const { isSignIn } = this.state;
 
-    const mainJSX = isSignIn ? <SignIn /> : <SignUp goToSignIn={this.goToSignIn} />;
+    const mainJSX = isSignIn ? <SignIn goBackToMain={this.goBackToMain.bind(this)} /> : <SignUp goToSignIn={this.goToSignIn} />;
     return (
       <View style={container}>
         <View style={ row1 }>

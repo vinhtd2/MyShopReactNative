@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { View, TextInput, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import signIn from '../../api/signIn';
 
+import global from '../global';
+
 export default class SignIn extends Component {
   constructor(props) {
     super(props);
@@ -13,8 +15,12 @@ export default class SignIn extends Component {
 
   onSignIn = () => {
     const { email, password } = this.state;
+    const { goBackToMain } = this.props;
     signIn(email, password)
-      .then(res => console.log(res))
+      .then(res => {
+        global.onSignIn(res.user);
+        goBackToMain();
+      })
       .catch(error => console.log(error));
   }
   render() {

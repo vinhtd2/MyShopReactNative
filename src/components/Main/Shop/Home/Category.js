@@ -4,7 +4,10 @@ import { View, Text, Image, StyleSheet, Dimensions, TouchableOpacity } from 'rea
 import Swiper from 'react-native-swiper';
 
 const { width, height } = Dimensions.get('window');
-const url = 'http://192.168.1.56/api/images/type/';
+
+import { localhost } from '../../../global';
+
+const url = `${localhost}api/images/type/`;
 
 export default class Collection extends Component {
   constructor(props) {
