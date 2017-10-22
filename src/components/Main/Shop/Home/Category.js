@@ -25,21 +25,24 @@ export default class Collection extends Component {
     const { wrapper, imageStyle, cateTitle, textStyle } = styles;
     const { navigate } = this.props.navigation;
     const { types } = this.props;
+    const swiper = (
+      <Swiper>
+        { types.map(e => (
+          <TouchableOpacity onPress={this.goToListProduct.bind(this)} key={e.id}>
+            <Image source={{ uri: `${url}${e.image}` }} style={imageStyle}>
+              <Text style={cateTitle}>{e.name}</Text>
+            </Image>
+          </TouchableOpacity>
+        )) }
+      </Swiper>
+    )
     return (
       <View style={ wrapper }>
         <View style={{ flex: 1, justifyContent: 'center' }}>
           <Text style={ textStyle }>LIST OF CATEGORY</Text>
         </View>
         <View style={{ flex: 4 }}>
-          <Swiper>
-            { types.map(e => (
-              <TouchableOpacity onPress={this.goToListProduct.bind(this)} key={e.id}>
-                <Image source={{ uri: `${url}${e.image}` }} style={imageStyle}>
-                  <Text style={cateTitle}>{e.name}</Text>
-                </Image>
-              </TouchableOpacity>
-            )) }
-          </Swiper>
+          { types.length ? swiper : null}
         </View>
       </View>
     );

@@ -48,6 +48,7 @@ export default class SignIn extends Component {
           placeholder="Enter your email"
           value={password}
           onChangeText={text => this.setState({ password: text })}
+          secureTextEntry
         />
         <TouchableOpacity style={bigButton} onPress={this.onSignIn}>
           <Text style={buttonText}>SIGN IN NOW</Text>
