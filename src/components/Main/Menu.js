@@ -4,6 +4,7 @@ import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import global from '../global';
 
 import profileIcon from '../../media/temp/profile.png';
+import saveToken from '../../api/saveToken';
 
 class Menu extends Component {
   constructor(props) {
@@ -15,6 +16,10 @@ class Menu extends Component {
   }
   onSignIn(user) {
     this.setState({ user });
+  }
+  onSignOut() {
+    this.setState({ user: null });
+    saveToken('');
   }
   goToAuthentication() {
     const { navigate } = this.props;
@@ -54,7 +59,7 @@ class Menu extends Component {
           <TouchableOpacity style={btnSignInStyle} onPress={this.goToChangeInfo.bind(this)}>
             <Text style={btnTextSignIn}>Change Info</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={btnSignInStyle}>
+          <TouchableOpacity style={btnSignInStyle} onPress={this.onSignOut.bind(this)}>
             <Text style={btnTextSignIn}>Sign Out</Text>
           </TouchableOpacity>
         </View>
