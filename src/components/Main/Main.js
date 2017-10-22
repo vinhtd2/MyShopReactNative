@@ -7,12 +7,14 @@ import Shop from './Shop/Shop';
 
 import checkLogin from '../../api/checkLogin';
 
-const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZpbmh0cmFuQGdtYWlsLmNvbSIsImlhdCI6MTUwODY3MDkzMCwiZXhwaXJlIjoxNTA4ODQzNzMwfQ.aYSM1pMVdcvpiMtHLdAHCfGMFDIZixHQQZ480As0PZ0"
+import getToken from '../../api/getToken';
+import global from '../global';
 
 export default class Main extends Component {
   componentDidMount() {
-    checkLogin(token)
-      .then(res => console.log('CHECK LOGIN', res))
+    getToken()
+      .then(token => checkLogin(token))
+      .then(res => global.onSignIn(res.user))
       .catch(err => console.log('ERROR CHECK LOGIN', err))
   }
 
