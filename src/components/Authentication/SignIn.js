@@ -4,6 +4,9 @@ import signIn from '../../api/signIn';
 
 import global from '../global';
 
+import saveToken from '../../api/saveToken';
+import getToken from '../../api/getToken';
+
 export default class SignIn extends Component {
   constructor(props) {
     super(props);
@@ -13,6 +16,7 @@ export default class SignIn extends Component {
     };
   }
 
+
   onSignIn = () => {
     const { email, password } = this.state;
     const { goBackToMain } = this.props;
@@ -20,6 +24,7 @@ export default class SignIn extends Component {
       .then(res => {
         global.onSignIn(res.user);
         goBackToMain();
+        saveToken(res.token);
       })
       .catch(error => console.log(error));
   }
