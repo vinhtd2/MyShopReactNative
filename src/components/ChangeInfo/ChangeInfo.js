@@ -5,11 +5,12 @@ import backSpecial from '../../media/appIcon/backs.png';
 
 export default class ChangeInfo extends Component {
   constructor(props) {
+    const { name, address, phone } = props.navigation.state.params.user;
     super(props);
     this.state = {
-      txtName: 'Tran Duc Vinh',
-      txtAddress: '405 Nguyen Kim / District 10',
-      txtPhone: '01694472176'
+      txtName: name,
+      txtAddress: address,
+      txtPhone: phone,
     };
   }
   goBackToMain() {

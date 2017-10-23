@@ -27,7 +27,8 @@ class Menu extends Component {
   }
   goToChangeInfo() {
     const { navigate } = this.props;
-    navigate('CHANGE_INFO');
+    const { user } = this.state;
+    navigate('CHANGE_INFO', { user });
   }
   goToOrderHistory() {
     const { navigate } = this.props;
