@@ -17,9 +17,9 @@ export default class Collection extends Component {
       types: this.props.types
     }
   }
-  goToListProduct() {
+  goToListProduct(category) {
     const { navigate } = this.props.navigation;
-    navigate('LIST_PRODUCT');
+    navigate('LIST_PRODUCT', { category });
   }
   render() {
     const { wrapper, imageStyle, cateTitle, textStyle } = styles;
@@ -28,7 +28,7 @@ export default class Collection extends Component {
     const swiper = (
       <Swiper>
         { types.map(e => (
-          <TouchableOpacity onPress={this.goToListProduct.bind(this)} key={e.id}>
+          <TouchableOpacity onPress={() => this.goToListProduct(e)} key={e.id}>
             <Image source={{ uri: `${url}${e.image}` }} style={imageStyle}>
               <Text style={cateTitle}>{e.name}</Text>
             </Image>
